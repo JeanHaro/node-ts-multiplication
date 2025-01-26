@@ -1,6 +1,9 @@
 // Plugins
 import { yarg } from "./config/plugins/yargs.plugin";
 
+// Presentation
+import { ServerApp } from "./presentation/server-app";
+
 /* console.log(process.argv);
 
 console.log(yarg);
@@ -12,5 +15,8 @@ console.log('valor de b es =>', yarg.b); */
 })();
 
 async function main() {
-    console.log(yarg);
+    const { b:base, l:limit, s:showTable } = yarg;
+
+    ServerApp.run({base, limit, showTable});
 }
+
