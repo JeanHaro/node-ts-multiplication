@@ -26,5 +26,11 @@ export const yarg = yargs(hideBin(process.argv))
         default: false,
         describe: 'Show multiplication table'
     })
+    .check((argv, options) => {
+
+        if (argv.b < 1) throw 'ERROR: base must be greater than 0';
+
+        return true;
+    })
     // parse() - podriamos recibir un objeto o una promesa, y no nos combiene de que sea asíncrono 
     .parseSync()
