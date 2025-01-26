@@ -1,11 +1,13 @@
 import fs from 'fs';
 import path from 'path';
+import { yarg } from './config/plugins/yargs.plugin';
 
-const number = 5;
+// const number = yarg.b;
+const { b: number, l: limit, s: show } = yarg;
 let bodyMessage: string = '';
 
 // \n -> salto de línea
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= limit; i++) {
     bodyMessage += `${number} x ${i} = ${number * i}\n`;
 }
 
@@ -17,7 +19,7 @@ const data = `
 ${bodyMessage}
 `
 
-console.log(data);
+if (show) console.log(data);
 
 // Genera la carpeta
 const outputDir = path.join(__dirname, '../outputs');
