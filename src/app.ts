@@ -1,7 +1,17 @@
 // Plugins
 import { yarg } from "./config/plugins/yargs.plugin";
 
-console.log(process.argv);
+/* console.log(process.argv);
 
 console.log(yarg);
-console.log('valor de b es =>', yarg.b);
+console.log('valor de b es =>', yarg.b); */
+
+// Función anonima autoinvocada, se ejecuta solo
+(async () => {
+    await main();
+    console.log('Fin del programa');
+})();
+
+async function main() {
+    console.log('Main ejecutado');
+}
